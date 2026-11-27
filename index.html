@@ -1,140 +1,279 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-        content="Informasi Pesantren Pertanian Darul Fallah">
-  <title>Pesantren Pertanian Darul Fallah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesantren Pertanian Darul Fallah | Informasi Pendaftaran Santri Baru</title>
+  <meta name="description" content="Pesantren Pertanian Darul Fallah: pendidikan pesantren, akademik, tahfidz Al-Qur'an, agribisnis, dan kemandirian. Program MTs dan MA.">
+  <meta name="theme-color" content="#00311F">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pesantren Pertanian Darul Fallah">
+  <meta property="og:description" content="Di sini, yang ditanam bukan hanya benih. Iman, ilmu, dan kemandirian santri ikut bertumbuh.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --hutan: #00311F;
+      --hijau: #006B4A;
+      --daun: #9BC53D;
+      --padi: #F4B400;
+      --embun: #F2F7F1;
+      --teks: #12342A;
+      --lebar: 1120px;
+    }
     * { box-sizing: border-box; }
-
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f8f5;
-      color: #173b30;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      line-height: 1.7;
+      background: var(--embun);
+      color: var(--teks);
     }
+    h1, h2, h3 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      line-height: 1.12;
+      margin: 0;
+      text-wrap: balance;
+    }
+    h2 { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 800; letter-spacing: -.02em; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--padi); outline-offset: 4px; }
+    .wrap { width: min(100% - 40px, var(--lebar)); margin-inline: auto; }
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 12px; top: 12px; z-index: 20; background: #fff; padding: 8px 14px; }
 
-    header {
-      padding: 20px;
-      background: white;
-      color: #006B4A;
-      font-weight: bold;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #003d29, #006B4A);
-      color: white;
-      text-align: center;
-      padding: 90px 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(30px, 5vw, 54px);
-    }
-
-    .hero p {
-      line-height: 1.8;
-      max-width: 650px;
-      margin: 20px auto 35px;
-    }
+    /* Header */
+    header { background: var(--hutan); color: #fff; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 18px; }
+    .brand { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.1rem; line-height: 1.25; text-decoration: none; }
+    .menu { display: flex; align-items: center; gap: 28px; font-size: .95rem; }
+    .menu a { text-decoration: none; }
+    .menu a:hover { text-decoration: underline; text-underline-offset: 6px; }
 
     .btn {
       display: inline-block;
       padding: 15px 28px;
-      background: #F4B400;
-      color: #173b30;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-
-    .program {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px #00000009;
-    }
-
-    footer {
-      background: #004b35;
-      color: white;
+      border-radius: 999px;
+      background: var(--padi);
+      color: var(--hutan);
+      font-weight: 700;
       text-align: center;
-      padding: 25px;
+      text-decoration: none;
+      transition: background-color .2s;
+    }
+    .btn:hover { background: #FFC62E; }
+    .menu .btn { padding: 9px 22px; }
+    .menu .btn:hover { text-decoration: none; }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; background: var(--hutan); color: #fff; }
+    .hero-isi { padding-top: clamp(56px, 9vw, 112px); position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: clamp(2.6rem, 7.4vw, 5.7rem);
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: 1.02;
+      max-width: 13ch;
+    }
+    .hero-bawah {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px 64px;
+      align-items: end;
+      margin-top: 36px;
+    }
+    .hero-bawah p { margin: 0; font-size: 1.12rem; max-width: 54ch; color: #DCEBDD; }
+    .aksi { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; }
+    .tautan { font-weight: 700; text-underline-offset: 6px; }
+
+    /* Lahan terasering: elemen khas halaman */
+    .lahan { display: block; width: 100%; height: clamp(150px, 23vw, 300px); margin-top: 40px; }
+    .lapis { animation: tumbuh 1.1s cubic-bezier(.2,.7,.2,1) both; }
+    .lapis:nth-of-type(2) { animation-delay: .12s; }
+    .lapis:nth-of-type(3) { animation-delay: .24s; }
+    @keyframes tumbuh { from { transform: translateY(90px); } to { transform: translateY(0); } }
+
+    /* Nilai */
+    .nilai { background: var(--daun); color: var(--hutan); padding-block: 40px 48px; }
+    .nilai p {
+      margin: 0;
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(1.6rem, 3.6vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    section { scroll-margin-top: 16px; }
+    .bagian { padding-block: clamp(64px, 9vw, 104px); }
+    .pengantar { max-width: 58ch; margin: 16px 0 44px; }
+
+    /* Program: jenjang x jalur */
+    .jenjang {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      gap: 24px 40px;
+      padding-block: 36px;
+      border-top: 2px solid var(--hutan);
+    }
+    .jenjang > h3 { font-size: 1.75rem; font-weight: 800; color: var(--hijau); }
+    .jalur h4 { margin: 0 0 6px; font-size: 1.15rem; }
+    .jalur p { margin: 0; max-width: 40ch; }
+
+    /* Alur */
+    .alur { background: #fff; }
+    .langkah {
+      list-style: none;
+      counter-reset: l;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin: 44px 0 0;
+      padding: 0;
+    }
+    .langkah li { counter-increment: l; border-top: 4px solid var(--daun); padding-top: 18px; }
+    .langkah li::before {
+      content: counter(l);
+      display: block;
+      font: 800 2.4rem/1 "Bricolage Grotesque", sans-serif;
+      color: var(--hijau);
+      margin-bottom: 14px;
+    }
+    .langkah h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    .langkah p { margin: 0; }
+
+    /* Penutup */
+    .penutup { background: var(--hijau); color: #fff; }
+    .penutup .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px; }
+    .penutup h2 { max-width: 18ch; }
+
+    footer { background: var(--hutan); color: #DCEBDD; padding-block: 32px; font-size: .95rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+    @media (max-width: 860px) {
+      .menu a:not(.btn) { display: none; }
+      .hero-bawah { grid-template-columns: 1fr; }
+      .jenjang { grid-template-columns: 1fr 1fr; }
+      .jenjang > h3 { grid-column: 1 / -1; }
+      .langkah { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .jenjang, .langkah { grid-template-columns: 1fr; }
+      .aksi .btn, .penutup .btn { width: 100%; }
+      .menu .btn { padding-inline: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .lapis { animation: none; }
     }
   </style>
 </head>
 
 <body>
+<a class="skip" href="#utama">Lewati ke konten</a>
 
 <header>
-  Pesantren Pertanian Darul Fallah
+  <div class="wrap nav">
+    <a class="brand" href="#utama">Pesantren Pertanian<br>Darul Fallah</a>
+    <nav class="menu" aria-label="Menu utama">
+      <a href="#program">Program</a>
+      <a href="#alur">Alur pendaftaran</a>
+      <a class="btn" href="https://script.google.com/macros/s/AKfycbyS9xx8QRfZNGubsqsU2NFB735y4mP0o8tXz67o9-sowdedjT0Dx4rtMPNHKUjpbLsobQ/exec?lp=web">Daftar</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-  <h1>Tumbuh dalam Iman.<br>
-      Unggul dalam Ilmu.</h1>
-
-  <p>
-    Pendidikan berbasis pesantren, akademik,
-    tahfidz Al-Qur'an, keterampilan hidup,
-    dan kemandirian.
-  </p>
-
-  <a class="btn"
-     href="https://script.google.com/macros/s/AKfycbyS9xx8QRfZNGubsqsU2NFB735y4mP0o8tXz67o9-sowdedjT0Dx4rtMPNHKUjpbLsobQ/exec?lp=web">
-    Informasi Pendaftaran
-  </a>
-</section>
-
-<section class="program">
-
-  <h2>Program Pendidikan</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>MTs Terpadu</h3>
-      <p>Akademik, diniyah dan keterampilan hidup.</p>
+<main id="utama">
+  <section class="hero">
+    <div class="wrap hero-isi">
+      <h1>Di sini, yang ditanam bukan hanya benih.</h1>
+      <div class="hero-bawah">
+        <p>Di Pesantren Pertanian Darul Fallah, santri menumbuhkan iman, ilmu, dan kemandirian lewat pendidikan pesantren, akademik, tahfidz Al-Qur'an, dan keterampilan hidup.</p>
+        <div class="aksi">
+          <a class="btn" href="https://script.google.com/macros/s/AKfycbyS9xx8QRfZNGubsqsU2NFB735y4mP0o8tXz67o9-sowdedjT0Dx4rtMPNHKUjpbLsobQ/exec?lp=web">Informasi pendaftaran</a>
+          <a class="tautan" href="#program">Lihat program</a>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>MTs Tahfidz</h3>
-      <p>Penguatan hafalan Al-Qur'an.</p>
-    </div>
+    <svg class="lahan" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+      <g class="lapis">
+        <path fill="#006B4A" d="M0 170C260 90 470 190 740 120S1200 20 1440 85V400H0Z"/>
+        <path fill="none" stroke="#9BC53D" stroke-opacity=".55" stroke-width="2" d="M0 192C260 112 470 212 740 142S1200 42 1440 107"/>
+      </g>
+      <g class="lapis">
+        <path fill="#2E8B4E" d="M0 215C300 290 520 130 830 185S1250 220 1440 150V400H0Z"/>
+        <path fill="none" stroke="#F4B400" stroke-opacity=".7" stroke-width="2" d="M0 238C300 313 520 153 830 208S1250 243 1440 173"/>
+      </g>
+      <g class="lapis">
+        <path fill="#9BC53D" d="M0 265C330 215 610 300 920 255S1280 235 1440 262V400H0Z"/>
+      </g>
+    </svg>
+  </section>
 
-    <div class="card">
-      <h3>MA Terpadu</h3>
-      <p>Akademik, agribisnis dan kemandirian.</p>
-    </div>
-
-    <div class="card">
-      <h3>MA Tahfidz</h3>
-      <p>Pendalaman Al-Qur'an dan diniyah.</p>
-    </div>
-
+  <div class="nilai">
+    <div class="wrap"><p>Tumbuh dalam iman. Unggul dalam ilmu.</p></div>
   </div>
-</section>
+
+  <section class="bagian" id="program">
+    <div class="wrap">
+      <h2>Pilih jalur belajar ananda</h2>
+      <p class="pengantar">Dua jenjang, masing-masing dengan jalur Terpadu dan Tahfidz.</p>
+
+      <div class="jenjang">
+        <h3>Madrasah Tsanawiyah</h3>
+        <div class="jalur">
+          <h4>MTs Terpadu</h4>
+          <p>Pelajaran akademik berjalan bersama diniyah dan keterampilan hidup.</p>
+        </div>
+        <div class="jalur">
+          <h4>MTs Tahfidz</h4>
+          <p>Penguatan hafalan Al-Qur'an sebagai fokus pembinaan.</p>
+        </div>
+      </div>
+
+      <div class="jenjang">
+        <h3>Madrasah Aliyah</h3>
+        <div class="jalur">
+          <h4>MA Terpadu</h4>
+          <p>Akademik yang dipadukan dengan agribisnis dan latihan kemandirian.</p>
+        </div>
+        <div class="jalur">
+          <h4>MA Tahfidz</h4>
+          <p>Pendalaman Al-Qur'an dan ilmu diniyah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bagian alur" id="alur">
+    <div class="wrap">
+      <h2>Alur pendaftaran online</h2>
+      <ol class="langkah">
+        <li><h3>Buat akun</h3><p>Daftarkan akun calon santri di portal pendaftaran.</p></li>
+        <li><h3>Isi biodata</h3><p>Lengkapi data calon santri dan pilih program.</p></li>
+        <li><h3>Unggah berkas</h3><p>Kirim Kartu Keluarga dan bukti pembayaran.</p></li>
+        <li><h3>Ikuti seleksi</h3><p>Kerjakan tes CBT. Jalur Tahfidz juga mengirim setoran audio hafalan.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="bagian penutup">
+    <div class="wrap">
+      <h2>Siapkan langkah pertama ananda di Darul Fallah.</h2>
+      <a class="btn" href="https://script.google.com/macros/s/AKfycbyS9xx8QRfZNGubsqsU2NFB735y4mP0o8tXz67o9-sowdedjT0Dx4rtMPNHKUjpbLsobQ/exec?lp=web">Informasi pendaftaran</a>
+    </div>
+  </section>
+</main>
 
 <footer>
-  &copy; 2027 Pesantren Pertanian Darul Fallah
+  <div class="wrap">
+    <span>&copy; 2027 Pesantren Pertanian Darul Fallah</span>
+    <a href="https://www.darulfallah.org">www.darulfallah.org</a>
+  </div>
 </footer>
 
 </body>
